@@ -12,7 +12,7 @@ Course Material: PPT 15 - Intro to Sorting Algorithms     PPT 16 - Sorting Conti
 ## Assignment Reflection
 
 What did you notice about the differences in runtime across algorithms as you changed the number of cards you were sorting? If you had to split them into "slower" algorithms vs "faster" algorithms, which would you put in each category?
-Results for random cards:
+Results for random cards (I used a smaller sample size as I felt like it was taking a comparatively longer time):
 2000 cards: Merge Sort: 0.06s Selection Sort: 1.09s Insertion Sort: 1.09s
 5000 cards: Merge Sort: 0.07s Selection Sort: 17.32s Insertion Sort: 17.21s
 10000 cards: Merge Sort: 0.09s Selection Sort: 140.46s Insertion Sort: 141.85s
