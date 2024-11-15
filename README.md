@@ -8,7 +8,7 @@ Programming Partner Name (if you'd like to be graded together):
 Other Collaborators (and kudos to helpful members of the class):
 
 Any references used besides JavaDoc and course materials:
-
+Course Material: PPT 15 - Intro to Sorting Algorithms     PPT 16 - Sorting Continued
 ## Assignment Reflection
 
 What did you notice about the differences in runtime across algorithms as you changed the number of cards you were sorting? If you had to split them into "slower" algorithms vs "faster" algorithms, which would you put in each category?
