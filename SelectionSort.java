@@ -5,12 +5,10 @@ public class SelectionSort {
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
     record.add(unsorted);
     CardPile sorted = new CardPile();
-    int placeHolder = 0;
     while (unsorted.size() > 0){
       Card min = unsorted.getFirst();
       for (int i = 0; i < unsorted.size(); i++){
         if (min.compareTo(unsorted.get(i)) > 0){
-          placeHolder = i;
           min = unsorted.get(i);
         }
       }

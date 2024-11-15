@@ -9,12 +9,16 @@ public class InsertionSort {
 
     // Here is the result list you will be creating
     CardPile sorted = new CardPile();
+    sorted.add(unsorted.removeFirst());
+    record.next(); // tell it this is a new step
+    record.add(sorted); // the allegedly sorted pile
+    record.add(unsorted); // the unsorted pile
   
     while (unsorted.size() > 0){
       Card temp = unsorted.removeFirst();
-      for (int i = sorted.size(); i > 0; i --){
-        if (temp.compareTo(sorted.get(i)) < 0){
-          sorted.insertBefore(temp, sorted.get(i));
+      for (int i = sorted.size() - 1; i >= 0; i --){
+        if (temp.compareTo(sorted.get(i)) > 0){
+          sorted.insertBefore(temp,sorted.get(i));
         }
       }
       record.next(); // tell it this is a new step
