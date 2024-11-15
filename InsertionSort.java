@@ -3,27 +3,34 @@ import java.util.Collections;
 public class InsertionSort {
   
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
-    
-    // register the starting configuration with the recorder
     record.add(unsorted);
 
-    // Here is the result list you will be creating
     CardPile sorted = new CardPile();
     sorted.add(unsorted.removeFirst());
-    record.next(); // tell it this is a new step
-    record.add(sorted); // the allegedly sorted pile
-    record.add(unsorted); // the unsorted pile
+    record.next();
+    record.add(sorted);
+    record.add(unsorted);
   
     while (unsorted.size() > 0){
       Card temp = unsorted.removeFirst();
-      for (int i = sorted.size() - 1; i >= 0; i --){
+      int index = -1;
+      for (int i = 0; i < sorted.size(); i ++){
         if (temp.compareTo(sorted.get(i)) > 0){
-          sorted.insertBefore(temp,sorted.get(i));
+          index = i;
         }
       }
-      record.next(); // tell it this is a new step
-      record.add(sorted); // the allegedly sorted pile
-      record.add(unsorted); // the unsorted pile
+      if (index == -1){
+        sorted.addFirst(temp);
+        record.next();
+        record.add(sorted);
+        record.add(unsorted);
+      }
+      else{
+        sorted.insertAfter(temp,sorted.get(index));
+        record.next();
+        record.add(sorted);
+        record.add(unsorted);
+      }
     }
     return sorted;
   }
