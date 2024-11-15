@@ -3,26 +3,22 @@ import java.util.Collections;
 public class SelectionSort {
   
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
-    // register the starting configuration with the recorder
     record.add(unsorted);
-    // Here is the result list you will be creating
     CardPile sorted = new CardPile();
     int placeHolder = 0;
     while (unsorted.size() > 0){
-      for (int i = 0; i < unsorted.size() - 1; i++){
-        placeHolder = i;
-        for (int j = i + 1; j < unsorted.size() - 1; j++){
-          if (unsorted.get(j).compareTo(unsorted.get(j + 1)) > 0){
-            placeHolder = j;
-          }
+      Card min = unsorted.getFirst();
+      for (int i = 0; i < unsorted.size(); i++){
+        if (min.compareTo(unsorted.get(i)) > 0){
+          placeHolder = i;
+          min = unsorted.get(i);
         }
       }
-      Card temp = unsorted.get(placeHolder);
-      unsorted.remove(placeHolder);
-      sorted.add(temp);
-      record.next(); // tell it this is a new step
-      record.add(sorted); // the allegedly sorted pile
-      record.add(unsorted); // the unsorted pile
+      unsorted.remove(min);
+      sorted.add(min);
+      record.next();
+      record.add(sorted);
+      record.add(unsorted);
     }
     return sorted;
   }
