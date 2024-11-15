@@ -6,12 +6,19 @@ public class MergeSort {
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
     
     ArrayDeque<CardPile> queue = new ArrayDeque<CardPile>();
+    while(unsorted.size() > 0){
+      CardPile temp = new CardPile();
+      temp.add(unsorted.removeFirst());
+      queue.add(temp);
+    }
+    CardPile A = new CardPile();
+    CardPile B = new CardPile();
+    CardPile C = new CardPile();
     while (queue.size() > 1){
-      CardPile A = queue.removeFirst();
-      CardPile B = queue.removeFirst();
-      CardPile C = new CardPile();
+      A = queue.removeFirst();
+      B = queue.removeFirst();
       while ((A.size() > 0) || (B.size() > 0)){
-        if (A.getFirst().compareTo(B.getFirst()) < 0){
+        if (A.get(0).compareTo(B.get(0)) > 0){
           C.add(A.removeFirst());
         }
         else{
@@ -23,6 +30,10 @@ public class MergeSort {
       }
       else if (B.size() > 0){
         C.append(B);
+      }
+      record.next();        // tell it this is a new step
+      for (CardPile pile: queue) { // add all piles
+        record.add(pile);
       }
       queue.add(C);
     }
@@ -38,7 +49,6 @@ public class MergeSort {
     //        }
     // ***********************************************************
 
-    // return the sorted result here
     return queue.remove();
   }
 
@@ -47,14 +57,6 @@ public class MergeSort {
 - While more than one list remains on the queue:
   - Remove the first two lists from the queue and merge them, preserving their sorted order.
   - Put the result back at the end of the queue.
-
-_To merge two sorted lists into a single sorted list:_
-  - Look at the first element in each list.
-  - Take the smaller of the two off the front of its old list and put it at the end of a new (merged) list.
-  - Repeat this until both one of the old lists is empty, at which point you can append the remainder of the other original list to
-  the new list.
-  - If the original lists were sorted, and you always take the smallest element available, then the resulting list will also be
-  sorted. (You might want to convince yourself of this fact before continuing.)
  */
 
   public static void main(String args[]) {
