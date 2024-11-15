@@ -20,3 +20,4 @@ I noticed that Merge Sort takes (much) less time in general, with selection sort
 I would put Merge Sort into faster algorithm category and Selection Sort and Insertion Sort into slower algorithm category.
 
 Please reflect on your experience with this assignment. What was most challenging? What was most interesting?
+The process of thinking through each sorting method is challenging. I think the part when we can see the demonstration of sorting process is really interesting.

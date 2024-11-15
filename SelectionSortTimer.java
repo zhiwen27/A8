@@ -1,5 +1,10 @@
 public class SelectionSortTimer {
   
+  /**
+   * Selection Sort
+   * @param unsorted unsorted list
+   * @return sorted list
+   */
   public static CardPile sort(CardPile unsorted) {
     CardPile sorted = new CardPile();
     while (unsorted.size() > 0){

@@ -2,6 +2,12 @@ import java.util.Collections;
 
 public class InsertionSort {
   
+  /**
+   * Insertion Sort
+   * @param unsorted unsorted list
+   * @param record a recorder to demonstrate each step
+   * @return sorted list
+   */
   public static CardPile sort(CardPile unsorted, SortRecorder record) {
     record.add(unsorted);
 
