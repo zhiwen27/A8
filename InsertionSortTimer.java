@@ -11,18 +11,19 @@ public class InsertionSortTimer {
   
     while (unsorted.size() > 0){
       Card temp = unsorted.removeFirst();
-      int index = 0;
-      while ((index < sorted.size() - 1) && (temp.compareTo(sorted.get(index)) > 0)){
-        index ++;
+      Card node = null;
+      for (Card c: sorted){
+        if (c.compareTo(temp) < 0){
+          node = c;
+        }
       }
-      sorted.insertBefore(temp,sorted.get(index));
+      if (node == null){
+        sorted.addFirst(temp);
+      }
+      else{
+        sorted.insertAfter(temp, node);
+      }
     }
-    Card last = sorted.removeLast();
-    int lastIndex = 0;
-    while ((lastIndex < sorted.size() - 1) && (last.compareTo(sorted.get(lastIndex)) > 0)){
-      lastIndex ++;
-    }
-    sorted.insertBefore(last,sorted.get(lastIndex));
     return sorted;
   }
 

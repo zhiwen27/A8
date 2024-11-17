@@ -19,37 +19,22 @@ public class InsertionSort {
   
     while (unsorted.size() > 0){
       Card temp = unsorted.removeFirst();
-      // int index = 0;
-      // while ((index < sorted.size() - 1) && (temp.compareTo(sorted.get(index)) > 0)){
-      //   index ++;
-      // }
-      // sorted.insertBefore(temp,sorted.get(index));
       Card node = null;
       for (Card c: sorted){
-        if (temp.compareTo(c) > 0){
+        if (c.compareTo(temp) < 0){
           node = c;
-          break;
         }
       }
       if (node == null){
-        sorted.add(temp);
+        sorted.addFirst(temp);
       }
       else{
-        sorted.insertBefore(temp, node);
+        sorted.insertAfter(temp, node);
       }
       record.next();
       record.add(sorted);
       record.add(unsorted);
     }
-    // Card last = sorted.removeLast();
-    // int lastIndex = 0;
-    // while ((lastIndex < sorted.size() - 1) && (last.compareTo(sorted.get(lastIndex)) > 0)){
-    //   lastIndex ++;
-    // }
-    // sorted.insertBefore(last,sorted.get(lastIndex));
-    // record.next();
-    // record.add(sorted);
-    // record.add(unsorted);
     return sorted;
   }
 
