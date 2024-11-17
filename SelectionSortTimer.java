@@ -9,9 +9,9 @@ public class SelectionSortTimer {
     CardPile sorted = new CardPile();
     while (unsorted.size() > 0){
       Card min = unsorted.getFirst();
-      for (int i = 0; i < unsorted.size(); i++){
-        if (min.compareTo(unsorted.get(i)) > 0){
-          min = unsorted.get(i);
+      for (Card c: unsorted){
+        if (min.compareTo(c) > 0){
+          min = c;
         }
       }
       unsorted.remove(min);
